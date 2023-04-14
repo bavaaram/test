@@ -1,15 +1,19 @@
-#! /usr/bin/python3
-
-n = input("")
-x = int(input("Current Position "))
-k = int(input("Times press bottun"))
-name = dict()
-
-for i in range(int(n)):
-	name[i + 1] = input()
+st = input()
+start, i, paras = 0, 0, []
+for m in st:
+	if m == " ":
+		paras.append(st[start:i])
+		start = i + 1
+	else: pass
+	i += 1
+paras.append(st[start:i])	
+n, x, k = int(paras[0]), int(paras[1]) - 1, int(paras[2])
+name = []
+for i in range(n):
+	name.append(input())
 for j in range(k):
-	if x == int(n):
-		x = 1
-		continue
-	x += 1
+	if x == (n - 1):
+		x = 0
+	else:
+		x += 1
 print(name[x])
